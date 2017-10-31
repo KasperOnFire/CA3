@@ -1,5 +1,5 @@
-import React from "react"
-import {Route, Switch } from "react-router-dom"
+import React from "react";
+import {Route, Switch } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
 import About from "./About";
@@ -20,6 +20,6 @@ function App() {
         <Route path="/admin" component={AdminPage} />
       </Switch>
     </div>
-  )
+  );
 }
 export default App;
