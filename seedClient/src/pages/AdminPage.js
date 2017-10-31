@@ -33,7 +33,11 @@ class AdminPage extends Component {
           <div className="alert alert-danger errmsg-left" role="alert">
             {this.state.err}
           </div>
-        )}
+		)}
+		
+		<div>
+		
+		</div>
       </div>
     )
   }
