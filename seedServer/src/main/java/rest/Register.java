@@ -43,16 +43,16 @@ public class Register {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String registerUser(String user) {
+        User us = null;
         try {
             JsonObject json = new JsonParser().parse(user).getAsJsonObject();
             String username = json.get("username").getAsString();
             String password = json.get("password").getAsString();
             User newUser = new User(username, password);
-            User u = uf.registerUser(newUser);
-            return gson.toJson(u);
+            us = uf.registerUser(newUser);
         } catch (PasswordStorage.CannotPerformOperationException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return gson.toJson(us);
     }
 }

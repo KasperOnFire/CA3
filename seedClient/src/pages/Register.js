@@ -12,12 +12,19 @@ class RegisterUser extends Component{
 		event.preventDefault()
 		const user = this.state.user.username;
 		const pass = this.state.user.password;
-		auth.login(user, pass, (err, loggedIn) => {
+		auth.register(user, pass, (err, loggedIn) => {
 		  if (err) {
 			return this.setState({ err: err.errorMessage });
 		  }
 		  this.setState({ err: "" });
 		  this.props.history.push("/");
+		});
+		auth.login(user, pass, (err, loggedIn) => {
+			if (err) {
+				return this.setState({ err: err.errorMessage });
+			}
+			this.setState({ err: ""});
+			this.props.history.push("/");
 		});
 	  }
 	
@@ -38,7 +45,7 @@ class RegisterUser extends Component{
           <input type="text" value={this.state.user.username} onChange={this.onChange} className="form-control" id="username" placeholder="User Name" required autoFocus />
           <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input type="password" value={this.state.user.password} onChange={this.onChange} id="password" className="form-control" placeholder="Password" required />
-          <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
           <br />
         </form>
         { this.state.err && ( 
