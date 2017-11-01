@@ -11,7 +11,7 @@ import security.IUser;
 import security.PasswordStorage;
 
 @Entity(name = "SEED_PLACE")
-public class Place implements IUser, Serializable{
+public class Place implements Serializable{
 
     @Id
     @Column(length = 30, name = "PLACE_NAME")
