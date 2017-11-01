@@ -1,4 +1,4 @@
-package security;
+package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -18,6 +18,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import security.IUserFacade;
+import security.Secret;
+import security.UserFacadeFactory;
 
 @Path("login")
 public class Login {

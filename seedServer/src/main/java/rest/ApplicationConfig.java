@@ -3,35 +3,33 @@ package rest;
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
-
 @javax.ws.rs.ApplicationPath("api")
 public class ApplicationConfig extends Application {
 
-  @Override
-  public Set<Class<?>> getClasses() {
-    Set<Class<?>> resources = new java.util.HashSet<>();
-    addRestResourceClasses(resources);
-    return resources;
-  }
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> resources = new java.util.HashSet<>();
+        addRestResourceClasses(resources);
+        return resources;
+    }
 
-  /**
-   * Do not modify addRestResourceClasses() method.
-   * It is automatically populated with
-   * all resources defined in the project.
-   * If required, comment out calling this method in getClasses().
-   */
-  private void addRestResourceClasses(Set<Class<?>> resources) {
-    resources.add(cors.CorsRequestFilter.class);
-    resources.add(cors.CorsResponseFilter.class);
-    resources.add(httpErrors.GenericExceptionMapper.class);
-    resources.add(httpErrors.NotFoundExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.ClassNotFoundExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.ConversionExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.DatabaseExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.EntityExistsExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.EntityNotFoundExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.IOExceptionMapper.class);
-    resources.add(org.eclipse.persistence.jpa.rs.exceptions.IllegalAccessExceptionMapper.class);
+    /**
+     * Do not modify addRestResourceClasses() method. It is automatically
+     * populated with all resources defined in the project. If required, comment
+     * out calling this method in getClasses().
+     */
+    private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(cors.CorsRequestFilter.class);
+        resources.add(cors.CorsResponseFilter.class);
+        resources.add(httpErrors.GenericExceptionMapper.class);
+        resources.add(httpErrors.NotFoundExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.ClassNotFoundExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.ConversionExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.DatabaseExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.EntityExistsExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.EntityNotFoundExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.IOExceptionMapper.class);
+        resources.add(org.eclipse.persistence.jpa.rs.exceptions.IllegalAccessExceptionMapper.class);
         resources.add(org.eclipse.persistence.jpa.rs.exceptions.IllegalArgumentExceptionMapper.class);
         resources.add(org.eclipse.persistence.jpa.rs.exceptions.IllegalStateExceptionMapper.class);
         resources.add(org.eclipse.persistence.jpa.rs.exceptions.InvocationTargetExceptionMapper.class);
@@ -62,11 +60,12 @@ public class ApplicationConfig extends Application {
         resources.add(org.eclipse.persistence.jpa.rs.resources.unversioned.SingleResultQueryResource.class);
         resources.add(rest.Admin.class);
         resources.add(rest.All.class);
+        resources.add(rest.Login.class);
+        resources.add(rest.Register.class);
         resources.add(rest.User.class);
         resources.add(security.JWTAuthenticationFilter.class);
-        resources.add(security.Login.class);
         resources.add(security.NotAuthorizedExceptionMapper.class);
         resources.add(security.RolesAllowedFilter.class);
-  }
-  
+    }
+
 }
