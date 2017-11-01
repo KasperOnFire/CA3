@@ -5,82 +5,100 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import security.IUser;
 import security.PasswordStorage;
 
 @Entity(name = "SEED_PLACE")
-public class Place implements IUser, Serializable{
+public class Place implements Serializable {
 
     @Id
-    @Column(length = 30, name = "PLACE_NAME")
-    private String placeName;
-    private String address;
-    private String gps;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    @Column(length = 255, name = "CITY", nullable = false)
+    private String city;
+    @Column(length = 25, name = "ZIP", nullable = false)
+    private int zip;
+    @Column(length = 255, name = "STREET", nullable = false)
+    private String street;
+    @Column(length = 255, name = "GPS_LOCATION", nullable = true)
+    private String gpsLocation;
+    @Column(length = 255, name = "DESCRIPTION", nullable = false)
     private String description;
+    @Column(length = 25, name = "RATING", nullable = false)
     private int rating;
-    private String imageUri;
-    
-    
-    
-    
-  public Place() {
-  }
+    @Column(length = 255, name = "IMAGE_URI", nullable = false)
+    private String imgUri;
 
-    public Place(String placeName, String address, String description, int rating, String imageUri)
-    {
-        this.placeName = placeName;
-        this.address = address;
+    public Place(String city, int zip, String street, String gpsLocation, String description, int rating, String imgUri) {
+        this.city = city;
+        this.zip = zip;
+        this.street = street;
+        this.gpsLocation = gpsLocation;
         this.description = description;
         this.rating = rating;
-        this.imageUri = imageUri;
+        this.imgUri = imgUri;
     }
 
-    public String getPlaceName()
-    {
-        return placeName;
+    public String getCity() {
+        return city;
     }
 
-    public String getAddress()
-    {
-        return address;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getGps()
-    {
-        return gps;
+    public int getZip() {
+        return zip;
     }
 
-    public String getDescription()
-    {
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getGpsLocation() {
+        return gpsLocation;
+    }
+
+    public void setGpsLocation(String gpsLocation) {
+        this.gpsLocation = gpsLocation;
+    }
+
+    public String getDescription() {
         return description;
     }
 
-    public int getRating()
-    {
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getRating() {
         return rating;
     }
 
-    public String getImageUri()
-    {
-        return imageUri;
-    }
-
-    public void setGps(String gps)
-    {
-        this.gps = gps;
-    }
-
-    public void setRating(int rating)
-    {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
-    public void setImageUri(String imageUri)
-    {
-        this.imageUri = imageUri;
+    public String getImgUri() {
+        return imgUri;
     }
-    
+
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
+    }
+   
+
     
 }
