@@ -13,7 +13,8 @@ import security.IUser;
 import security.PasswordStorage;
 
 @Entity(name = "SEED_PLACE")
-public class Place implements Serializable {
+public class Place implements Serializable{
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
