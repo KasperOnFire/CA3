@@ -18,7 +18,13 @@ class AdminPage extends Component {
         return this.setState({ err: e.err })
       }
       this.setState({ err: "", data });
-    });
+	});
+	adminData.getAllUsers((ev, users) => {
+		if (ev) {
+		  return this.setState({ err: ev.err })
+		}
+		this.setState({ err: "", users });
+	  });
   }
 
   render() {
@@ -33,9 +39,12 @@ class AdminPage extends Component {
           <div className="alert alert-danger errmsg-left" role="alert">
             {this.state.err}
           </div>
-        )}
+		)}
+		<div className="allUsers">
+		{this.state.users}
+		</div>
       </div>
-    )
+    );
   }
 }
 

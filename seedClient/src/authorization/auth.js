@@ -117,6 +117,28 @@ class AuthenticationHandler {
       })
     return;
   }
+
+  register = (username, password, cb) => {
+	  this._errorMessage = "";
+	  
+	  var newUser = { username, password };
+
+	  var options = {
+		  method: "POST",
+		  body: JSON.stringify(newUser),
+		  headers: new Headers({
+			  "Content-Type": "application/json"
+		  })
+	  }
+	  fetch(URL + "api/register", options)
+	  .then(res => {
+		  return res.json();
+	  }).then(data => {
+
+	  })
+	  return;
+  }
+
 }
 
 var auth = new AuthenticationHandler();

@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import userData from "../facades/userFacade";
 
 class UserPage extends Component {
 
     constructor(){
       super();
-      this.state = {data: "", err:""}
+      this.state = {data: "", err:""};
     }
 
     componentWillMount() {
@@ -15,7 +15,7 @@ class UserPage extends Component {
       */
       userData.getData((e,data)=>{
         if(e){
-          return this.setState({err:e.err})
+          return this.setState({err:e.err});
         }
         this.setState({err:"",data});
       });
@@ -36,7 +36,7 @@ class UserPage extends Component {
           )}
          
         </div>
-      )
+      );
     }
 
   }

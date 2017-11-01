@@ -8,6 +8,6 @@ export default class Logout extends Component{
   }
 
   render() {
-    return <p>You are now logged out</p>
+    return <p>You are now logged out</p>;
   }
 }
