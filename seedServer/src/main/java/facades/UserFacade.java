@@ -3,10 +3,9 @@ package facades;
 import security.IUserFacade;
 import entity.User;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.core.Response;
 import security.IUser;
@@ -32,6 +31,18 @@ public class UserFacade implements IUserFacade {
     } finally {
       em.close();
     }
+  }
+  
+  public List<IUser> getAllUsers(){
+      EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            Query q = em.createQuery("Select u From SEED_USER u");
+            em.getTransaction().commit();
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
   }
 
   /*
