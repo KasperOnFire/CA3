@@ -1,7 +1,10 @@
 package rest;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import entity.Role;
 import facades.UserFacade;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,7 +22,16 @@ import entity.User;
 @RolesAllowed("Admin")
 public class Admin {
 
-    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().setExclusionStrategies(new ExclusionStrategy() {
+        @Override
+        public boolean shouldSkipClass(Class<?> cl) {
+            return (cl == Role.class);
+        }
+
+        public boolean shouldSkipField(FieldAttributes f) {
+            return false;
+        }
+    }).create();
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
     private UserFacade uf = new UserFacade(emf);
 
@@ -35,7 +47,9 @@ public class Admin {
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllUsers() {
         List<User> users = uf.getAllUsers();
-        return gson.toJson(users);
+        String result = gson.toJson(users);
+        System.out.println(result);
+        return result;
     }
 
 }
