@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import entity.Role;
 import facades.UserFacade;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -49,6 +50,8 @@ public class Register {
             String username = json.get("username").getAsString();
             String password = json.get("password").getAsString();
             User newUser = new User(username, password);
+            Role userRole = new Role("User");
+            newUser.addRole(userRole);
             us = uf.registerUser(newUser);
         } catch (PasswordStorage.CannotPerformOperationException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
