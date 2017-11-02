@@ -34,7 +34,7 @@ class AdminPage extends Component {
         <h2>Admins</h2>
         <p>This message is fetched from the server if you were properly logged in</p>
         <div className="msgFromServer">
-          {this.state.data}
+          <p>{this.state.data.length}</p>
         </div>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">

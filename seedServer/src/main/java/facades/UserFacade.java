@@ -38,6 +38,9 @@ public class UserFacade implements IUserFacade {
         try {
             em.getTransaction().begin();
             Query q = em.createQuery("Select u From SEED_USER u");
+            
+            //Map
+            
             em.getTransaction().commit();
             return q.getResultList();
         } finally {
