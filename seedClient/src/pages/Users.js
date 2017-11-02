@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import auth from "../authorization/auth";
 
-class RegisterUser extends Component{
+class Users extends Component{
 
 	constructor() {
 		super();
@@ -36,4 +36,4 @@ class RegisterUser extends Component{
   }
 }
 
-export default RegisterUser	;
+export default users	;

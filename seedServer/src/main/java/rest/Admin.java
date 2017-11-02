@@ -28,6 +28,7 @@ public class Admin {
             return (cl == Role.class);
         }
 
+        @Override
         public boolean shouldSkipField(FieldAttributes f) {
             return false;
         }
