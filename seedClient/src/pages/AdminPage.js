@@ -19,6 +19,7 @@ class AdminPage extends Component {
       }
       this.setState({ err: "", data });
 	});
+	
 	adminData.getAllUsers((ev, users) => {
 		if (ev) {
 		  return this.setState({ err: ev.err })

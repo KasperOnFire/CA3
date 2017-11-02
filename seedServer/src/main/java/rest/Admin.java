@@ -36,15 +36,15 @@ public class Admin {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
     private UserFacade uf = new UserFacade(emf);
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getSomething() {
-        String now = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(new Date());
-        return "{\"message\" : \"Hello Admin from server (call accesible by only authenticated ADMINS)\",\n" + "\"serverTime\": \"" + now + "\"}";
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getSomething() {
+//        String now = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(new Date());
+//        return "{\"message\" : \"Hello Admin from server (call accesible by only authenticated ADMINS)\",\n" + "\"serverTime\": \"" + now + "\"}";
+//    }
 
     @GET
-    @Path("getAll")
+    //@Path("getAll")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllUsers() {
         List<User> users = uf.getAllUsers();

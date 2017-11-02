@@ -9,7 +9,7 @@ class Users extends Component{
 	  }
 
 	  componentDidMount(){
-		var apiLink = "http://localhost:8084/seedMaven/api/demoadmin/getAll";
+		var apiLink = "http://localhost:8084/seedMaven/api/demoadmin/";
 		var promise = fetch(apiLink);
 		var dataField = document.getElementById("data");
 		promise.then(function (response) {
