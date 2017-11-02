@@ -29,4 +29,17 @@ public class PlaceFacade {
         }
         return null;
     }
+    
+        public Place registerPlace(Place place) {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(place);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return place;
+    }
+    
 }

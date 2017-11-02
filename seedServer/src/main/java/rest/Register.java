@@ -39,17 +39,17 @@ public class Register {
 
     @Context
     private UriInfo context;
-
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String registerUser(String user) {
-        User us = null;
+        entity.User us = null;
         try {
             JsonObject json = new JsonParser().parse(user).getAsJsonObject();
-            String username = json.get("username").getAsString();
-            String password = json.get("password").getAsString();
-            User newUser = new User(username, password);
+            String username = json.get("").getAsString();
+            String password = json.get("").getAsString();
+            entity.User newUser = new entity.User(username, password);
             Role userRole = new Role("User");
             newUser.addRole(userRole);
             us = uf.registerUser(newUser);
@@ -58,4 +58,5 @@ public class Register {
         }
         return gson.toJson(us);
     }
+    
 }
