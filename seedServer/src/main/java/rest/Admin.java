@@ -1,16 +1,10 @@
 package rest;
 
 import entity.User_Map;
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import entity.Role;
 import facades.UserFacade;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.ws.rs.GET;
