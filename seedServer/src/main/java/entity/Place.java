@@ -16,7 +16,7 @@ public class Place implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    
+    private long id;
     @Column(length = 255, name = "CITY", nullable = false)
     private String city;
     @Column(length = 25, name = "ZIP", nullable = false)
