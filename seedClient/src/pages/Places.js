@@ -29,7 +29,7 @@ class Places extends Component{
           <p>This message is fetched from the server for anyone</p>
           
           <div className="msgFromServer">
-            {this.state.data}  
+            {this.state.data.length}  
           </div>
           { this.state.err && ( 
             <div className="alert alert-danger errmsg-left" role="alert"> 
