@@ -26,8 +26,18 @@ class UserPage extends Component {
           <h2>Users</h2>
           <p>This message is fetched from the server if you are properly logged in</p>
           
-          <div className="msgFromServer">
-            {this.state.data}  
+		  <div className="msgFromServer">
+		  <table>
+		  <tr>
+		 <th>Username</th>
+		 <th>Roles</th> 
+		  </tr>
+			{this.state.data.map((user, index) => (
+				<tr key={index}><td>user.username</td>
+								<td>user.roles</td>
+				</tr>
+			))}
+			</table>
           </div>
           { this.state.err && ( 
             <div className="alert alert-danger errmsg-left" role="alert"> 

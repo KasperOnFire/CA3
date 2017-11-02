@@ -13,7 +13,6 @@ import javax.ws.rs.core.MediaType;
 @Path("places")
 public class Place {
     
-    
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
     private PlaceFacade pf = new PlaceFacade(emf);

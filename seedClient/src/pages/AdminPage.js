@@ -28,7 +28,18 @@ class AdminPage extends Component {
         <h2>Admins</h2>
         <p>This message is fetched from the server if you were properly logged in</p>
         <div className="msgFromServer">
-          <p>{this.state.data.length}</p>
+		  <p>{this.state.data.length}</p>
+		  <table>
+		  <tr>
+		 <th>Username</th>
+		 <th>Roles</th> 
+		  </tr>
+			{this.state.data.map((user, index) => (
+				<tr key={index}><td>user.username</td>
+								<td>user.roles</td>
+				</tr>
+			))}
+			</table>
         </div>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">
