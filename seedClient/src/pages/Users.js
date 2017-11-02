@@ -36,4 +36,4 @@ class Users extends Component{
   }
 }
 
-export default users	;
+export default Users;
