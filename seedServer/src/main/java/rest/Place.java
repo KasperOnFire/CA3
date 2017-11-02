@@ -3,6 +3,7 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import facades.PlaceFacade;
+import javax.annotation.security.PermitAll;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.ws.rs.GET;
