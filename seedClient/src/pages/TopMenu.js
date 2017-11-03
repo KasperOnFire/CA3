@@ -31,8 +31,10 @@ class TopMenu extends Component {
             <ul className="nav navbar-nav">
 			  <li><Link to="/about">About</Link></li>
 			  <li><Link to="/register">Register</Link></li>
-              <li><Link to="/user">Page for Users </Link></li>
-              <li><Link to="/admin">Page for Admins</Link></li>
+			  <li><Link to="/places">Places</Link></li>
+              {this.state.isUser && (<li><Link to="/user">Page for Users </Link></li>)}
+              {this.state.isAdmin && (<li><Link to="/admin">Page for Admins </Link></li>)}
+              {this.state.isAdmin && (<li><Link to="/users">All Users</Link></li>)}
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="navbar-text" style={{ color: "steelBlue" }}>{logInStatus}</li>

@@ -5,7 +5,7 @@ class AdminPage extends Component {
 
   constructor() {
     super();
-    this.state = { data: "", err: "" }
+    this.state = { data: "", err: "" };
   }
 
   componentWillMount() {
@@ -19,13 +19,17 @@ class AdminPage extends Component {
       }
       this.setState({ err: "", data });
 	});
-	adminData.getAllUsers((ev, users) => {
-		if (ev) {
-		  return this.setState({ err: ev.err })
-		}
-		this.setState({ err: "", users });
-	  });
   }
+
+  mapData(array) {
+	var users = array;
+	var html = "<table><tr><th>Username</th><th>Roles</th></tr>"
+	users.forEach(function(user) {
+		html +="<tr>"+user.username+"</tr>"+"<tr>"+user.role[0]+"</tr>" 
+	}, this);
+	html = html + "</table>";
+	return html;
+}
 
   render() {
     return (
@@ -33,7 +37,8 @@ class AdminPage extends Component {
         <h2>Admins</h2>
         <p>This message is fetched from the server if you were properly logged in</p>
         <div className="msgFromServer">
-          {this.state.data}
+		  <p>{console.log(this.state.data)}</p>
+		  
         </div>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">
