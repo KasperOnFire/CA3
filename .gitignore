@@ -2,3 +2,4 @@ node_modules/
 .expo/
 npm-debug.*
 /seedClient/nbproject/private/
+/ca3App/nbproject/private/

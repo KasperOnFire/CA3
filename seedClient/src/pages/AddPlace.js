@@ -28,21 +28,47 @@ class AddPlace extends Component{
 		window.location.href = "/#/addplace";
 	  }
           
-//         render() {
-//		return (
-//		<div className="container">
-//        <form className="form-signin" onSubmit={//this.handleSubmit}>
-//          <h2 className="form-signin-heading">Please register</h2>
-//          <label htmlFor="inputEmail" className="sr-only">Email address</label>
-//          <input type="text" value={//this.state.user.username} onChange={this.onChange} className="form-control" id="username" placeholder="User Name" required autoFocus />
-//          <label htmlFor="inputPassword" className="sr-only">Password</label>
-//          <input type="password" value={//this.state.user.password} onChange={this.onChange} id="password" className="form-control" placeholder="Password" required />
-//		  <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-//          <br />
-//        </form>
-//      </div>//
-//	)
-//  }
+          onChange = (e) => {
+		const propertyName = e.target.id;
+		const value = e.target.value;
+		let place = this.state.place;
+		place[propertyName] = value;
+		this.setState({place});
+	  }
+          
+         render() {
+		return (
+		<div className="container">
+        <form className="form-signin" onSubmit={this.handleSubmit}>
+          <h2 className="form-signin-heading">Add a new place!</h2>
+          <label htmlFor="inputCity" className="sr-only">City</label>
+          <input type="text" value={this.state.place.city} onChange={this.onChange} className="form-control" id="city" placeholder="City" required autoFocus />
+          
+        <label htmlFor="inputZip" className="sr-only">ZIP code</label>
+        <input type="number" value={this.state.place.zip} onChange={this.onChange} className="form-control" id="zip" placeholder="Zip" required />
+          
+          <label htmlFor="inputStreet" className="sr-only">Street</label>
+          <input type="text" value={this.state.place.street} onChange={this.onChange} className="form-control" id="street" placeholder="Street" required />
+          
+          <label htmlFor="inputGpsLocation" className="sr-only">GPS Location</label>
+          <input type="text" value={this.state.place.gpsLocation} onChange={this.onChange} className="form-control" id="gpsLocation" placeholder="Gps Location" />
+          
+          <label htmlFor="inputDescription" className="sr-only">Description</label>
+          <input type="text" value={this.state.place.description} onChange={this.onChange} className="form-control" id="description" placeholder="Description" required />
+          
+          <label htmlFor="inputRating" className="sr-only">Rating</label>
+          <input type="number" value={this.state.place.rating} onChange={this.onChange} className="form-control" id="rating" placeholder="Rating" required />
+          
+          <label htmlFor="inputImgUri" className="sr-only">Image Uri</label>
+          <input type="text" value={this.state.place.imgUri} onChange={this.onChange} className="form-control" id="imgUri" placeholder="Img Uri" required />
+          
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Add Place</button>
+          
+          <br />
+        </form>
+      </div>//
+	)
+  }
 
 }
 

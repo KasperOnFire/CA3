@@ -130,6 +130,7 @@ class AuthenticationHandler {
 			  "Content-Type": "application/json"
 		  })
 	  }
+          console.log(options)
 	  fetch(URL + "api/register", options)
 	  .then(res => {
 		  return res.json();
@@ -150,7 +151,8 @@ class AuthenticationHandler {
 			  "Content-Type": "application/json"
 		  })
 	  }
-	  fetch(URL + "api/addplace", options)
+          console.log(options)
+	  fetch(URL + "api/places", options)
 	  .then(res => {
 		  return res.json();
 	  }).then(data => {
