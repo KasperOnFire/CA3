@@ -20,17 +20,35 @@ class Places extends Component{
         }
         this.setState({err:"",data});
       });
-    }  
+	}  
+	
+	mapPlaces = (a) => {
+		console.log(a);
+		var html = ""
+		if(a === null){
+			return "";
+		}
+	
+		var rows = a.map(function(p){
+			return <tr><td>{p.city}</td><td>{p.zip}</td><td>{p.street}</td><td>{p.gpsLocation}</td><td>{p.description}</td><td>{p.rating}</td><td>{p.imgUri}</td></tr>;
+		})
+		return rows;
+	}
         
   render() {
+		var rows = this.mapPlaces(this.state.data);
       return (
         <div>
           <h2>Places</h2>
           <p>This message is fetched from the server for anyone</p>
-          
-          <div className="msgFromServer">
-            {this.state.data.length}  
-          </div>
+          <table className="table table-striped table-bordered table-hover">
+		  <thead>
+			  <tr><th>City</th><th>Zip</th><th>Street</th><th>Gps</th><th>Description</th><th>rating</th><th>imgUri</th></tr>
+		  </thead>
+		  <tbody>
+			  {rows}
+		  </tbody>		
+		  </table>
           { this.state.err && ( 
             <div className="alert alert-danger errmsg-left" role="alert"> 
               {this.state.err}
