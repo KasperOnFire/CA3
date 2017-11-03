@@ -4,10 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import facades.PlaceFacade;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.security.PermitAll;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.ws.rs.Consumes;
@@ -16,22 +16,21 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import security.PasswordStorage;
 import entity.Place;
 
 @Path("places")
 public class PlaceRest {
-    
+
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
     private PlaceFacade pf = new PlaceFacade(emf);
-  
-  @GET
-  @Produces(MediaType.APPLICATION_JSON)
-  public String getAll(){
-     return gson.toJson(pf.getAllPlaces());
-  }
- 
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAll() {
+        return gson.toJson(pf.getAllPlaces());
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,12 +45,12 @@ public class PlaceRest {
             String description = json.get("description").getAsString();
             int rating = Integer.parseInt(json.get("rating").getAsString());
             String imgUri = json.get("imgUri").getAsString();
-            Place newPlace = new Place(city,zip,street,gpsLocation,description,rating,imgUri);
+            Place newPlace = new Place(city, zip, street, gpsLocation, description, rating, imgUri);
             pl = pf.registerPlace(newPlace);
-        } catch (Exception ex) {
+        } catch (JsonSyntaxException | NumberFormatException ex) {
             Logger.getLogger(PlaceRest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return gson.toJson(pf);
+        return gson.toJson(pl);
     }
-  
+
 }
