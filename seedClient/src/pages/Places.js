@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import placesData from "../facades/placesFacade";
 
-
 class Places extends Component{
         
   constructor(){
@@ -22,7 +21,8 @@ class Places extends Component{
       });
 	}  
 	
-	mapPlaces = (a) => {
+
+	mapData = (a) => {
 		console.log(a);
 		var html = ""
 		if(a === null){
@@ -34,9 +34,12 @@ class Places extends Component{
 		})
 		return rows;
 	}
-        
+
+
   render() {
-		var rows = this.mapPlaces(this.state.data);
+		//var rows = this.mapData(this.state.data);
+		console.log(this.state.data);
+		console.log("data", this.state.data);
       return (
         <div>
           <h2>Places</h2>
@@ -46,7 +49,7 @@ class Places extends Component{
 			  <tr><th>City</th><th>Zip</th><th>Street</th><th>Gps</th><th>Description</th><th>rating</th><th>imgUri</th></tr>
 		  </thead>
 		  <tbody>
-			  {rows}
+			  {}
 		  </tbody>		
 		  </table>
           { this.state.err && ( 
