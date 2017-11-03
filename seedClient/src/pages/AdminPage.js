@@ -5,7 +5,7 @@ class AdminPage extends Component {
 
   constructor() {
     super();
-    this.state = { data: "", err: "" };
+    this.state = { data: null, err: "" };
   }
 
   componentWillMount() {
@@ -21,25 +21,35 @@ class AdminPage extends Component {
 	});
   }
 
-  mapData(array) {
-	var users = array;
-	var html = "<table><tr><th>Username</th><th>Roles</th></tr>"
-	users.forEach(function(user) {
-		html +="<tr>"+user.username+"</tr>"+"<tr>"+user.role[0]+"</tr>" 
-	}, this);
-	html = html + "</table>";
-	return html;
+  mapData = (a) => {
+	console.log(a);
+	var html = ""
+	if(a === null){
+		return "";
+	}
+
+	var rows = a.map(function(user){
+		return <tr><td>{user.username}</td><td>{user.roles.join(", ")}</td></tr>;
+	})
+	return rows;
 }
 
+
+
   render() {
+	  var rows = this.mapData(this.state.data);
     return (
       <div>
         <h2>Admins</h2>
         <p>This message is fetched from the server if you were properly logged in</p>
-        <div className="msgFromServer">
-		  <p>{console.log(this.state.data)}</p>
-		  
-        </div>
+		<table className="table table-striped table-bordered table-hover">
+		<thead>
+			<tr><th>Username</th><th>Roles</th></tr>
+		</thead>
+		<tbody>
+			{rows}
+		</tbody>		
+		</table>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">
             {this.state.err}
