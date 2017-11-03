@@ -18,10 +18,10 @@ class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <ScrollView >
-        <Text style={{ textAlign: "center", fontSize: 20 }}>See all Demos implemented by</Text>
-        <Text style={{ textAlign: "center", fontSize: 20 }}>Kasper Ravn Breindal</Text>
+	  <Text style={{ textAlign: "center", fontSize: 20 }}>Placr™</Text>
+	  <Text style={{ textAlign: "center", fontSize: 20 }}>by Kasper Ravn Breindal</Text>
         <Text style={{ textAlign: "center", fontSize: 16 }}>http://github.com/kasperonfire/tutorial-native-app</Text>
-        <Touchable onPress={() => navigate('basics')} title="Basics" />
+        <Touchable onPress={() => navigate('documentation')} title="Documentation" />
       </ScrollView>
     )
   }
@@ -31,7 +31,7 @@ export default App = () => <RouteStack style={{ marginTop: Platform.OS === 'ios'
 
 const RouteStack = StackNavigator({
   Home: { screen: HomeScreen },
-  basics: { screen: Basics }
+  Documentation: { screen: Documentation }
 });
 
 const styles = StyleSheet.create({
