@@ -38,6 +38,7 @@ public class PlaceRest {
         entity.Place pl = null;
         try {
             JsonObject json = new JsonParser().parse(place).getAsJsonObject();
+
             String city = json.get("city").getAsString();
             int zip = Integer.parseInt(json.get("zip").getAsString());
             String street = json.get("street").getAsString();
@@ -46,10 +47,11 @@ public class PlaceRest {
             int rating = Integer.parseInt(json.get("rating").getAsString());
             String imgUri = json.get("imgUri").getAsString();
             Place newPlace = new Place(city, zip, street, gpsLocation, description, rating, imgUri);
+
             pl = pf.registerPlace(newPlace);
         } catch (JsonSyntaxException | NumberFormatException ex) {
             Logger.getLogger(PlaceRest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }   
         return gson.toJson(pl);
     }
 
