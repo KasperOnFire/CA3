@@ -23,12 +23,12 @@ class Places extends Component{
 	
 
 	mapData = (a) => {
-		console.log(a);
+		//debugger
 		var html = ""
-		if(a === null){
+		if(a === null || a === ""){
 			return "";
 		}
-	
+                console.log("sadasd", a);
 		var rows = a.map(function(p){
 			return <tr><td>{p.city}</td><td>{p.zip}</td><td>{p.street}</td><td>{p.gpsLocation}</td><td>{p.description}</td><td>{p.rating}</td><td>{p.imgUri}</td></tr>;
 		})
@@ -37,9 +37,10 @@ class Places extends Component{
 
 
   render() {
-		//var rows = this.mapData(this.state.data);
-		console.log(this.state.data);
+                console.log(this.state.data);
 		console.log("data", this.state.data);
+		var rows = this.mapData(this.state.data);
+		
       return (
         <div>
           <h2>Places</h2>
@@ -49,7 +50,7 @@ class Places extends Component{
 			  <tr><th>City</th><th>Zip</th><th>Street</th><th>Gps</th><th>Description</th><th>rating</th><th>imgUri</th></tr>
 		  </thead>
 		  <tbody>
-			  {}
+			  {rows}
 		  </tbody>		
 		  </table>
           { this.state.err && ( 
