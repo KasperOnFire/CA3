@@ -51,7 +51,7 @@ public class PlaceRest {
         } catch (Exception ex) {
             Logger.getLogger(PlaceRest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return gson.toJson(pf);
+        return gson.toJson(pl);
     }
   
 }

@@ -138,6 +138,26 @@ class AuthenticationHandler {
 	  })
 	  return;
   }
+  addPlace = (city, zip, street, gpsLocation, rating, imgUri, cb) => {
+	  this._errorMessage = "";
+	  
+	  var newPlace = { city, zip, street, gpsLocation, rating, imgUri };
+
+	  var options = {
+		  method: "POST",
+		  body: JSON.stringify(newPlace),
+		  headers: new Headers({
+			  "Content-Type": "application/json"
+		  })
+	  }
+	  fetch(URL + "api/addplace", options)
+	  .then(res => {
+		  return res.json();
+	  }).then(data => {
+
+	  })
+	  return;
+  }
 
 }
 
