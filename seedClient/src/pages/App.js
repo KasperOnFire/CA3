@@ -10,6 +10,8 @@ import AdminPage from "./AdminPage";
 import TopMenu from "./TopMenu";
 import Register from "./Register";
 import Documentation from "./Documentation";
+import WhoDidWhat from "./WhoDidWhat";
+import DownloadApp from "./DownloadApp";
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
                 <Route path="/user" component={UserPage} />
                 <Route path="/admin" component={AdminPage} />
                 <Route path="/documentation" component={Documentation} />
+                <Route path="/whodidwhat" component={WhoDidWhat} />
+                <Route path="/downloadapp" component={DownloadApp} />
                 </Switch>
             </div>
             );
