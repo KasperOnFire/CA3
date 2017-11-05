@@ -35,7 +35,6 @@ class TopMenu extends Component {
 			  <li><Link to="/futureimplementations">Future Implementations</Link></li>
 			  <li><Link to="/whodidwhat">Who Did What</Link></li>
 			  <li><Link to="/downloadapp">App Download</Link></li>
-              {this.state.isUser && (<li><Link to="/user">Page for Users </Link></li>)}
               {this.state.isUser && (<li><Link to="/addplace">Add Place</Link></li>)}
               {this.state.isAdmin && (<li><Link to="/admin">Page for Admins </Link></li>)}
             </ul>

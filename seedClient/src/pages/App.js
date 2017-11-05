@@ -4,7 +4,6 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Places from "./Places";
 import AddPlace from "./AddPlace";
-import UserPage from "./UserPage";
 import AdminPage from "./AdminPage";
 import TopMenu from "./TopMenu";
 import Register from "./Register";
@@ -24,7 +23,6 @@ function App() {
                 <Route path="/logout" component={Logout} />
                 <Route path="/places" component={Places} />
                 <Route path="/addplace" component={AddPlace} />
-                <Route path="/user" component={UserPage} />
                 <Route path="/admin" component={AdminPage} />
                 <Route path="/features" component={Features} />
                 <Route path="/whodidwhat" component={WhoDidWhat} />
