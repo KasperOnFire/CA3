@@ -14,11 +14,12 @@ class AddPlace extends Component{
 		const zip = this.state.place.zip;
 		const street = this.state.place.street;
 		const gpsLocation = this.state.place.gpsLocation;
+                const description = this.state.place.description;
 		const rating = this.state.place.rating;
 		const imgUri = this.state.place.imgUri;
                 
                 
-		auth.addPlace(city, zip, street, gpsLocation, rating, imgUri, (err, loggedIn) => {
+		auth.addPlace(city, zip, street, gpsLocation, description, rating, imgUri, (err, loggedIn) => {
 		  if (err) {
 			return this.setState({ err: err.errorMessage });
 		  }

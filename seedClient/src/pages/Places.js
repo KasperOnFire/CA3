@@ -23,9 +23,9 @@ class Places extends Component{
 	
 
 	mapData = (a) => {
-		//debugger
+		debugger
 		var html = ""
-		if(a === null || a === ""){
+		if(a === ""){
 			return "";
 		}
                 console.log("sadasd", a);

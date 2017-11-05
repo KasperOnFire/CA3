@@ -139,10 +139,10 @@ class AuthenticationHandler {
 	  })
 	  return;
   }
-  addPlace = (city, zip, street, gpsLocation, rating, imgUri, cb) => {
+  addPlace = (city, zip, street, gpsLocation, description, rating, imgUri, cb) => {
 	  this._errorMessage = "";
 	  
-	  var newPlace = { city, zip, street, gpsLocation, rating, imgUri };
+	  var newPlace = { city, zip, street, gpsLocation, description, rating, imgUri };
 
 	  var options = {
 		  method: "POST",
