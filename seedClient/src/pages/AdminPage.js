@@ -18,8 +18,8 @@ class AdminPage extends Component {
         return this.setState({ err: e.err })
       }
       this.setState({ err: "", data });
-	});
-  }
+  });
+}
 
   mapData = (a) => {
 	console.log(a);
@@ -42,7 +42,7 @@ class AdminPage extends Component {
       <div>
         <h2>Admins</h2>
         <p>This message is fetched from the server if you were properly logged in</p>
-		<table className="table table-striped table-bordered table-hover">
+		<table className="table table-striped table-bordered table-hover ">
 		<thead>
 			<tr><th>Username</th><th>Roles</th></tr>
 		</thead>
