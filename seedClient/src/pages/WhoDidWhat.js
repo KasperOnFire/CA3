@@ -8,9 +8,25 @@ export default class WhoDidWhat extends Component{
       <p> That is why you only see contribution from Kasper Ravn Breindal and Anton Kornholt</p>
       
       <p>The easiest way to view indviduel contribution is through our git commit log.</p>
+      <p>Kasper Ravn Breindal is KasperOnFire, and Anton Kornholt is AntonKornholt</p>
       <a href="https://github.com/KasperOnFire/CA3/commits/master">Link to commit log</a>
+      <p>______________________________________________________________________</p>
+      <h3>Here is a brief rundown of what each member did:</h3>
+      <p>______________________________________________________________________</p>
+      <h4>Kasper Ravn Breindals contributions:</h4>
+      <p> The app (all react native)</p>
+      <p> Rest for users and admins</p>
+      <p> React for login and registering new users </p>
+      <p> React for viewing all users</p>
+      <p> Deploying the solutions </p>
+      <p>______________________________________________________________________</p>
+      <h4>Anton Kornholts contributions:</h4>
+      <p> Rest for places</p>
+      <p> React for viewing places</p>
+      <p> React for adding new places </p>
+      <p> Documentation </p>
+      <p> Top menu and general page layout </p>
       
-      <h3>However here is a brief rundown of what each member did:</h3>
       </div>);
     
     
