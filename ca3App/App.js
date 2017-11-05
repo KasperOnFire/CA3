@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, Platform, TouchableOpacity, StyleSheet, Button, WebView, ScrollView } from 'react-native';
 import { Constants, WebBrowser } from "expo";
 import { StackNavigator } from 'react-navigation';
-import Basics from "./JS/Basics";
+import Documentation from "./JS/Documentation";
 import Places from "./JS/Places";
 
 
@@ -14,16 +14,16 @@ const Touchable = (props) => (
 
 
 class HomeScreen extends React.Component {
-  static navigationOptions = { title: 'Day1 Tutorial' };
+  static navigationOptions = { title: 'CA3 - Placr' };
   render() {
     const { navigate } = this.props.navigation;
     return (
       	<ScrollView >
 	  	<Text style={{ textAlign: "center", fontSize: 20 }}>Placr™</Text>
-	  	<Text style={{ textAlign: "center", fontSize: 20 }}>by Kasper Ravn Breindal</Text>
-    	<Text style={{ textAlign: "center", fontSize: 16 }}>http://github.com/kasperonfire/CA3</Text>
-		<Touchable onPress={() => navigate('documentation')} title="Documentation" />
-		<Touchable onPress={() => navigate("places")} title="All Places" />
+      <Text style={{ textAlign: "center", fontSize: 20 }}>by Kasper Ravn Breindal</Text>
+		  <Touchable onPress={() => navigate('documentation')} title="Documentation" />
+      <Touchable onPress={() => navigate("places")} title="Places" />
+      <Text style={{ textAlign: "center", fontSize: 16 }}>http://github.com/kasperonfire/CA3</Text>
       	</ScrollView>
     )
   }
@@ -33,8 +33,8 @@ export default App = () => <RouteStack style={{ marginTop: Platform.OS === 'ios'
 
 const RouteStack = StackNavigator({
   Home: { screen: HomeScreen },
-  Documentation: { screen: Documentation },
-  Places: { screen: Places }
+  documentation: { screen: Documentation },
+  places: { screen: Places }
 });
 
 const styles = StyleSheet.create({

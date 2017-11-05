@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, View } from 'react-native';
-import fetchHelper, {errorChecker} from ".fetchHelpers";
-const URL = require("../../package.json").serverURL;
+import { Text, View, FlatList, StyleSheet } from 'react-native';
+import fetchHelper, {errorChecker} from "./fetchHelpers";
+const URL = require("../package.json").serverURL;
 
 class Places extends React.Component{
 	static navigationOptions = {title:"All places in Database"};
@@ -12,7 +12,7 @@ class Places extends React.Component{
 		this.state = {data: "", err:""};
 	}
 	componentWillMount(){
-		getPlaces((e,data)=>{
+		this.getPlaces((e,data)=>{
 			if(e){
 			  return this.setState({err:e.err});
 			}
@@ -43,14 +43,11 @@ class Places extends React.Component{
     }
 
 	mapData = (a) => {
-		var html = ""
 		if(a === ""){
 			return "";
 		}
-                console.log("sadasd", a);
 		var rows = a.map(function(p){
-			return <Text>{p.city}</Text>;
-			//return <tr><td>{p.city}</td><td>{p.zip}</td><td>{p.street}</td><td>{p.gpsLocation}</td><td>{p.description}</td><td>{p.rating}</td><td>{p.imgUri}</td></tr>;
+			return p;
 		})
 		return rows;
 	}
@@ -58,11 +55,34 @@ class Places extends React.Component{
 	render(){
 		var rows = this.mapData(this.state.data);
 		return(
-			<View>
-				<Text>{rows}</Text>
+			<View style={styles.container}>
+			<Text style={styles.header}>City, Zip, Street, Gps, Desc, Rating</Text>
+			<FlatList
+			data = {rows}
+			renderItem={({item}) => 
+			<Text style={styles.item}>{item.city}, {item.zip}, {item.street}, {item.gps}, {item.description}, {item.rating}</Text>
+		}
+			/>
 			</View>
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+	 flex: 1,
+	 paddingTop: 22
+	},
+	item: {
+	  padding: 1,
+	  fontSize: 18,
+	  height: 44,
+	},
+	header: {
+		padding: 10,
+		fontSize: 20,
+		height: 44,
+	}
+  })
 
 export default Places;

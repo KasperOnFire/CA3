@@ -9,9 +9,6 @@ export default {
     let headers = {
       "Content-type": "Application/json"
     };
-    if (authenticate) {
-      headers.Authorization = `Bearer ${sessionStorage.token}`;
-    }
     let options = {
       method,
       headers
@@ -21,13 +18,7 @@ export default {
     }
     return options;
   },
-  /**
-   * Provide a better error message, that the one supplied by fetch
-   * @param {*} err 
-   */
-  addJustErrorMessage(err){
-    return  (err.message) === "Failed to fetch" ? `Failed to connect to the server (is the server running?)`: err.message;
-  }
+
 }
 
 function makeErrorMsg(data,fallBackMessage){

@@ -1,8 +1,8 @@
 {
-  "name": "tutorial-native-app",
+  "name": "CA3App",
   "version": "0.1.0",
   "private": true,
-  "serverURL": "blabla",
+  "serverURL": "https://breindal.me/CA3/",
   "devDependencies": {
     "react-native-scripts": "1.5.0",
     "jest-expo": "^21.0.2",
