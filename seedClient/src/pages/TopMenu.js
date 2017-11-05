@@ -26,10 +26,9 @@ class TopMenu extends Component {
         <nav className="navbar navbar-default" >
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/" style={{pointerEvents: "none"}}>Group COS5</a>
+              <a className="navbar-brand" href="/" style={{pointerEvents: "none"}}>COS5</a>
             </div>
             <ul className="nav navbar-nav">
-			  <li><Link to="/about">About</Link></li>
 			  <li><Link to="/register">Register</Link></li>
 			  <li><Link to="/places">Places</Link></li>
 			  <li><Link to="/features">Features</Link></li>

@@ -24,7 +24,7 @@ export default class WhoDidWhat extends Component{
       <p> Rest for places</p>
       <p> React for viewing places</p>
       <p> React for adding new places </p>
-      <p> Documentation </p>
+      <p> Documentation(Features, Future Implementations, Who Did What) </p>
       <p> Top menu and general page layout </p>
       
       </div>);
