@@ -8,9 +8,7 @@ The Places have been created in the database as an entity, but the showing the l
 
 
 
-## Authors
-### Kristian Krog -- Github: CaptainVillain
-### Anton Kornholt -- Github: SpankyHanky
-### Kasper Vink -- Github: LennartBedrager
-### Kasper Breindal -- Github: KasperOnFire
+## Authors 
+Anton Kornholt -- Github: SpankyHanky
+Kasper Breindal -- Github: KasperOnFire
 
